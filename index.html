@@ -10,12 +10,11 @@
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="apple-mobile-web-app-title" content="Schichtkonto" />
-<title>Schichtkonto – Version 2.9</title>
+<title>Schichtkonto – Version 3.0</title>
 <style>
 :root{--bg:#f3f5f8;--card:#fff;--ink:#172033;--muted:#687386;--line:#e6eaf0;--accent:#2563eb;--accent2:#dbeafe;--green:#16845b;--greenbg:#dcfce7;--orange:#b45309;--orangebg:#fef3c7;--red:#b91c1c;--redbg:#fee2e2;--nav:#111827}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{background:#0d1b3a;-webkit-text-size-adjust:100%;overflow:hidden;height:100%;overscroll-behavior:none;touch-action:manipulation}body{margin:0;overflow:hidden;width:100%;position:fixed;inset:0;height:var(--app-h,auto);display:flex;flex-direction:column;overscroll-behavior:none;background:#fff;color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{background:#0d1b3a;-webkit-text-size-adjust:100%;overflow:hidden;height:100%;overscroll-behavior:none;touch-action:manipulation}body{margin:0;overflow:hidden;width:100%;position:fixed;inset:0;height:var(--app-h,auto);display:flex;flex-direction:column;overscroll-behavior:none;background:#0d1b3a;color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
 header{background:var(--nav);color:#fff;padding:calc(12px + env(safe-area-inset-top)) 16px 10px;border-radius:0 0 18px 18px;flex:none;position:relative;z-index:6}
 .eyebrow{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:#aeb9ca;font-weight:700}h1{font-size:19px;line-height:1.1;margin:2px 0 1px}header p{margin:0;color:#cbd5e1;font-size:11px}
 .monthrow{display:flex;align-items:center;justify-content:space-between;margin-top:8px;gap:10px}.monthrow button{background:#273449;color:#fff;border:1px solid #3c4b62;border-radius:9px;padding:3px 11px;font-size:15px;line-height:1.2}.monthname{font-size:14px;font-weight:750}
@@ -67,12 +66,14 @@ header{background:#0d1b3a}
 .tabs{padding:6px 8px calc(16px + env(safe-area-inset-bottom))}
 .tab{padding:10px 2px;font-size:11.5px;border-radius:14px}
 .tab span{font-size:23px;margin-bottom:3px}
+#topfill{position:fixed;top:0;left:0;right:0;height:28px;background:#0d1b3a;z-index:1;pointer-events:none}
 </style>
 </head>
 <body>
+<div id="topfill"></div>
 <header>
   <img class="hlogo" alt="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPgo8ZGVmcz4KPHJhZGlhbEdyYWRpZW50IGlkPSJiZyIgY3g9IjMwJSIgY3k9IjIyJSIgcj0iOTUlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyNTM2NWEiLz48c3RvcCBvZmZzZXQ9Ii41NSIgc3RvcC1jb2xvcj0iIzEyMWIzMCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzA5MGUxYSIvPjwvcmFkaWFsR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0iYXJjIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjOTNjNWZkIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMjU2M2ViIi8+PC9saW5lYXJHcmFkaWVudD4KPHJhZGlhbEdyYWRpZW50IGlkPSJkb3QiIGN4PSIzNSUiIGN5PSIzMCUiIHI9IjgwJSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjODZlZmFjIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMTZhMzRhIi8+PC9yYWRpYWxHcmFkaWVudD4KPGZpbHRlciBpZD0iZ2xvdyIgeD0iLTMwJSIgeT0iLTMwJSIgd2lkdGg9IjE2MCUiIGhlaWdodD0iMTYwJSI+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMjIiLz48L2ZpbHRlcj4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iMTAyNCIgaGVpZ2h0PSIxMDI0IiByeD0iMjI0IiBmaWxsPSJ1cmwoI2JnKSIvPgo8Y2lyY2xlIGN4PSI1MTIiIGN5PSI1MTIiIHI9IjMwMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIzMDQ5IiBzdHJva2Utd2lkdGg9IjcyIi8+CjxwYXRoIGQ9Ik01MTIgMjEyQTMwMCAzMDAgMCAxIDEgMjEyIDUxMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM2I4MmY2IiBzdHJva2Utd2lkdGg9IjcyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9Ii41NSIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+CjxwYXRoIGQ9Ik01MTIgMjEyQTMwMCAzMDAgMCAxIDEgMjEyIDUxMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI2FyYykiIHN0cm9rZS13aWR0aD0iNzIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8Y2lyY2xlIGN4PSIyMTIiIGN5PSI1MTIiIHI9IjU4IiBmaWxsPSJ1cmwoI2RvdCkiIHN0cm9rZT0iIzBiMTIyMCIgc3Ryb2tlLXdpZHRoPSIxNCIvPgo8cGF0aCBkPSJNNTEyIDUxMlYzMzhNNTEyIDUxMkw2MTggNTczIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iNDYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSIvPgo8Y2lyY2xlIGN4PSI1MTIiIGN5PSI1MTIiIHI9IjMwIiBmaWxsPSIjZmZmIi8+Cjwvc3ZnPg==" />
-  <div class="eyebrow">Dein Arbeitszeitkonto · v2.9</div>
+  <div class="eyebrow">Dein Arbeitszeitkonto · v3.0</div>
   <h1>Schichtkonto</h1>
   <p>Stempeln. Überblick behalten. Fair planen.</p>
   <div class="monthrow">
